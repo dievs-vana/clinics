@@ -13,7 +13,7 @@ include('includes/config.php');
     <meta name="author" content="">
 
     <title>Svcc Clinic/title>
-    <link href="../clinic/vendor/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/modern-business.css" rel="stylesheet">
     <style>
