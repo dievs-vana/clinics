@@ -2,51 +2,53 @@
     error_reporting(0);
     include('includes/config.php');
     if(isset($_POST['submit']))
-      {
-    $student_id=$_POST['student_id'];
-    $Department=$_POST['Department'];
-    $school_year=$_POST['school_year'];
-    $first_name=$_POST['first_name'];
-    $middle_name=$_POST['middle_name'];
-    $last_name=$_POST['last_name'];
-    $birth_date=$_POST['birth_date'];
-    $Address=$_POST['Address'];
-    $mobile_no=$_POST['mobile_no'];
-    $year_old=$_POST['year_old'];
-    $Gender=$_POST['Gender'];
-    $marital_status=$_POST['marital_status'];
-    $Nationality=$_POST['Nationality'];
-    $Religion=$_POST['Religion'];
-    $emergency_guardian=$_POST['emergency_guardian'];
-    $relation_ship=$_POST['relation_ship'];
-    $emergency_contact=$_POST['emergency_contact'];
-    $Message=$_POST['Message'];
-    $status=1;
-    $sql="INSERT INTO  patienttbl(student_id,Department,school_year,first_name,middle_name,last_name,birth_date,Address,mobile_no,year_old,Gender,marital_status,Nationality,Religion,emergency_guardian,relation_ship,emergency_contact,Message,status)
-    VALUES(:student_id,:Department,:school_year,:first_name,:middle_name,:last_name,:birth_date,:Address,:mobile_no,:year_old,:Gender,:marital_status,:Nationality,:Religion,:emergency_guardian,:relation_ship,:emergency_contact,:Message,:status)";
-    $query = $dbh->prepare($sql);
-    $query->bindParam(':student_id',$student_id,PDO::PARAM_STR);
-    $query->bindParam(':Department',$Department,PDO::PARAM_STR);
-    $query->bindParam(':school_year',$school_year,PDO::PARAM_STR);
-    $query->bindParam(':first_name',$first_name,PDO::PARAM_STR);
-    $query->bindParam(':middle_name',$middle_name,PDO::PARAM_STR);
-    $query->bindParam(':last_name',$last_name,PDO::PARAM_STR);
-    $query->bindParam(':birth_date',$birth_date,PDO::PARAM_STR);
-    $query->bindParam(':Address',$Address,PDO::PARAM_STR);
-    $query->bindParam(':status',$status,PDO::PARAM_STR);
-    $query->bindParam(':mobile_no',$mobile_no,PDO::PARAM_STR);
-    $query->bindParam(':year_old',$year_old,PDO::PARAM_STR);
-    $query->bindParam(':Gender',$Gender,PDO::PARAM_STR);
-    $query->bindParam(':marital_status',$marital_status,PDO::PARAM_STR);
-    $query->bindParam(':Nationality',$Nationality,PDO::PARAM_STR);
-    $query->bindParam(':Religion',$Religion,PDO::PARAM_STR);
-    $query->bindParam(':emergency_guardian',$emergency_guardian,PDO::PARAM_STR);
-    $query->bindParam(':relation_ship',$relation_ship,PDO::PARAM_STR);
-    $query->bindParam(':emergency_contact',$emergency_contact,PDO::PARAM_STR);
-    $query->bindParam(':Message',$Message,PDO::PARAM_STR);
-    $query->bindParam(':status',$status,PDO::PARAM_STR);
-    $query->execute();
-    $lastInsertId = $dbh->lastInsertId();
+    {
+  $student_id=$_POST['student_id'];
+  $Department=$_POST['Department'];
+  $school_year=$_POST['school_year'];
+  $first_name=$_POST['first_name'];
+  $middle_name=$_POST['middle_name'];
+  $last_name=$_POST['last_name'];
+  $birth_date=$_POST['birth_date'];
+  $Address=$_POST['Address'];
+  $mobile_no=$_POST['mobile_no'];
+  $year_old=$_POST['year_old'];
+  $Gender=$_POST['Gender'];
+  $marital_status=$_POST['marital_status'];
+  $Nationality=$_POST['Nationality'];
+  $Religion=$_POST['Religion'];
+  $emergency_guardian=$_POST['emergency_guardian'];
+  $relation_ship=$_POST['relation_ship'];
+  $emergency_contact=$_POST['emergency_contact'];
+  $Vaccinated=$_POST['Vaccinated'];
+  $Message=$_POST['Message'];
+  $status=1;
+  $sql="INSERT INTO  patienttbl(student_id,Department,school_year,first_name,middle_name,last_name,birth_date,Address,mobile_no,year_old,Gender,marital_status,Nationality,Religion,emergency_guardian,relation_ship,emergency_contact,Vaccinated,Message,status)
+  VALUES(:student_id,:Department,:school_year,:first_name,:middle_name,:last_name,:birth_date,:Address,:mobile_no,:year_old,:Gender,:marital_status,:Nationality,:Religion,:emergency_guardian,:relation_ship,:emergency_contact,:Vaccinated,:Message,:status)";
+  $query = $dbh->prepare($sql);
+  $query->bindParam(':student_id',$student_id,PDO::PARAM_STR);
+  $query->bindParam(':Department',$Department,PDO::PARAM_STR);
+  $query->bindParam(':school_year',$school_year,PDO::PARAM_STR);
+  $query->bindParam(':first_name',$first_name,PDO::PARAM_STR);
+  $query->bindParam(':middle_name',$middle_name,PDO::PARAM_STR);
+  $query->bindParam(':last_name',$last_name,PDO::PARAM_STR);
+  $query->bindParam(':birth_date',$birth_date,PDO::PARAM_STR);
+  $query->bindParam(':Address',$Address,PDO::PARAM_STR);
+  $query->bindParam(':status',$status,PDO::PARAM_STR);
+  $query->bindParam(':mobile_no',$mobile_no,PDO::PARAM_STR);
+  $query->bindParam(':year_old',$year_old,PDO::PARAM_STR);
+  $query->bindParam(':Gender',$Gender,PDO::PARAM_STR);
+  $query->bindParam(':marital_status',$marital_status,PDO::PARAM_STR);
+  $query->bindParam(':Nationality',$Nationality,PDO::PARAM_STR);
+  $query->bindParam(':Religion',$Religion,PDO::PARAM_STR);
+  $query->bindParam(':emergency_guardian',$emergency_guardian,PDO::PARAM_STR);
+  $query->bindParam(':relation_ship',$relation_ship,PDO::PARAM_STR);
+  $query->bindParam(':emergency_contact',$emergency_contact,PDO::PARAM_STR);
+  $query->bindParam(':Vaccinated',$Vaccinated,PDO::PARAM_STR);
+  $query->bindParam(':Message',$Message,PDO::PARAM_STR);
+  $query->bindParam(':status',$status,PDO::PARAM_STR);
+  $query->execute();
+  $lastInsertId = $dbh->lastInsertId();
     if($lastInsertId)
     {
     $msg="Your info submitted successfully";
@@ -230,6 +232,17 @@
                     <div class="col-lg-4 mb-4">
                         <div class="font-italic">Emergency Contact<span style="color:red">*</span></div>
                         <div><input type="text" name="emergency_contact" class="form-control" required></div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="font-italic">Vaccinated<span style="color:red">*</span></div>
+                        <div>
+                            <select name="Vaccinated" class="form-control" required>
+                                <option value="">Select</option>
+                                <option value="1st Dose">1st Dose</option>
+                                <option value="2nd Dose">2nd Dose</option>
+                                <option value="Booster">Booster</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="row">

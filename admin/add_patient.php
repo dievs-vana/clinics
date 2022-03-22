@@ -27,10 +27,11 @@
    $emergency_guardian=$_POST['emergency_guardian'];
    $relation_ship=$_POST['relation_ship'];
    $emergency_contact=$_POST['emergency_contact'];
+   $Vaccinated=$_POST['Vaccinated'];
    $Message=$_POST['Message'];
    $status=1;
-   $sql="INSERT INTO  patienttbl(student_id,Department,school_year,first_name,middle_name,last_name,birth_date,Address,mobile_no,year_old,Gender,marital_status,Nationality,Religion,emergency_guardian,relation_ship,emergency_contact,Message,status)
-   VALUES(:student_id,:Department,:school_year,:first_name,:middle_name,:last_name,:birth_date,:Address,:mobile_no,:year_old,:Gender,:marital_status,:Nationality,:Religion,:emergency_guardian,:relation_ship,:emergency_contact,:Message,:status)";
+   $sql="INSERT INTO  patienttbl(student_id,Department,school_year,first_name,middle_name,last_name,birth_date,Address,mobile_no,year_old,Gender,marital_status,Nationality,Religion,emergency_guardian,relation_ship,emergency_contact,Vaccinated,Message,status)
+   VALUES(:student_id,:Department,:school_year,:first_name,:middle_name,:last_name,:birth_date,:Address,:mobile_no,:year_old,:Gender,:marital_status,:Nationality,:Religion,:emergency_guardian,:relation_ship,:emergency_contact,:Vaccinated,:Message,:status)";
    $query = $dbh->prepare($sql);
    $query->bindParam(':student_id',$student_id,PDO::PARAM_STR);
    $query->bindParam(':Department',$Department,PDO::PARAM_STR);
@@ -50,6 +51,7 @@
    $query->bindParam(':emergency_guardian',$emergency_guardian,PDO::PARAM_STR);
    $query->bindParam(':relation_ship',$relation_ship,PDO::PARAM_STR);
    $query->bindParam(':emergency_contact',$emergency_contact,PDO::PARAM_STR);
+   $query->bindParam(':Vaccinated',$Vaccinated,PDO::PARAM_STR);
    $query->bindParam(':Message',$Message,PDO::PARAM_STR);
    $query->bindParam(':status',$status,PDO::PARAM_STR);
    $query->execute();
@@ -257,6 +259,15 @@
 										<div class="col-sm-2">
 											<input type="number" name="emergency_contact" class="form-control" required>
 										</div>
+                                 <label class="col-sm-2 control-label">Vaccinated<span style="color:red">*</span></label>
+                              <div class="col-sm-2">
+											<select name="Vaccinated" class="form-control" required>
+												<option value="">Select</option>
+												<option value="1st Dose">1st Dose</option>
+												<option value="2nd Dose">2nd Dose</option>
+												<option value="Booster">Booster</option>
+                                 </select>
+                              </div>
 									</div>
 
 									<div class="hr-dashed"></div>

@@ -12,7 +12,7 @@ include('includes/config.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Svcc Clinic/title>
+    <title>BloodBank & Donor Management System</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/modern-business.css" rel="stylesheet">
@@ -44,7 +44,7 @@ include('includes/config.php');
     <!-- Page Content -->
     <div class="container">
 
-        <h1 class="my-4">Welcome to Svcc Clinic</h1>
+        <h1 class="my-4">Welcome to BloodBank & Donor Management System</h1>
 
         <!-- Marketing Icons Section -->
         <div class="row">

@@ -120,6 +120,7 @@ $msg="Record deleted Successfully ";
 									<thead>
 										<tr>
 										<th>#</th>
+											<th>Vaccinated</th>
 											<th>Last Name</th>
 											<th>Middle Name</th>
 											<th>First Name</th>
@@ -134,6 +135,7 @@ $msg="Record deleted Successfully ";
 									<tfoot>
 										<tr>
 										<th>#</th>
+											<th>Vaccinated</th>
 											<th>Last Name</th>
 											<th>Middle Name</th>
 											<th>First Name</th>
@@ -158,6 +160,7 @@ foreach($results as $result)
 {				?>	
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
+											<td><?php echo htmlentities($result->Vaccinated);?></td>
 											<td><?php echo htmlentities($result->last_name);?></td>
 											<td><?php echo htmlentities($result->middle_name);?></td>
 											<td><?php echo htmlentities($result->first_name);?></td>

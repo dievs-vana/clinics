@@ -138,7 +138,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
                   <option value="" selected="selected" class="form-control">***Select One***</option>
               
                   <option value="manage-pages.php?type=aboutus">About Us</option> 
-                  <option value="manage-pages.php?type=vaccine">Vaccinated</option>
+                  <option value="manage-pages.php?type=donor">Why Become Donor</option>
                 </select>
 												</div>
 											</div>
