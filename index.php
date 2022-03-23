@@ -12,7 +12,7 @@ include('includes/config.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BloodBank & Donor Management System</title>
+    <title>St Vincent College of Cabuyao</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/modern-business.css" rel="stylesheet">
@@ -44,27 +44,27 @@ include('includes/config.php');
     <!-- Page Content -->
     <div class="container">
 
-        <h1 class="my-4">Welcome to BloodBank & Donor Management System</h1>
+        <h1 class="my-4">Welcome to St Vincent College of Cabuyao Management System</h1>
 
         <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-4 mb-4">
                 <div class="card">
-                    <h4 class="card-header">The need for blood</h4>
+                    <h4 class="card-header">Lorem ipsum dolor </h4>
                    
                         <p class="card-text" style="padding-left:2%">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 </div>
             </div>
             <div class="col-lg-4 mb-4">
                 <div class="card">
-                    <h4 class="card-header">Blood Tips</h4>
+                    <h4 class="card-header">Lorem ipsum dolor </h4>
                    
                         <p class="card-text" style="padding-left:2%">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 </div>
             </div>
             <div class="col-lg-4 mb-4">
                 <div class="card">
-                    <h4 class="card-header">Who you could Help</h4>
+                    <h4 class="card-header">Lorem ipsum dolor </h4>
                    
                         <p class="card-text" style="padding-left:2%">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 </div>
@@ -73,7 +73,7 @@ include('includes/config.php');
         <!-- /.row -->
 
         <!-- Portfolio Section -->
-        <h2>Some of the Donar</h2>
+        <h2>Lorem ipsum dolor </h2>
 
         <div class="row">
                    <?php 
@@ -93,9 +93,9 @@ foreach($results as $result)
                 <div class="card h-100">
                     <a href="#"><img class="card-img-top img-fluid" src="images/blood-donor.jpg" alt="" ></a>
                     <div class="card-block">
-                        <h4 class="card-title"><a href="#"><?php echo htmlentities($result->FullName);?></a></h4>
+                        <h4 class="card-title"><a href="#"><?php echo htmlentities($result->last_name);?></a></h4>
 <p class="card-text"><b>  Gender :</b> <?php echo htmlentities($result->Gender);?></p>
-<p class="card-text"><b>Blood Group :</b> <?php echo htmlentities($result->BloodGroup);?></p>
+<p class="card-text"><b>Department :</b> <?php echo htmlentities($result->Department);?></p>
 
                     </div>
                 </div>
@@ -113,17 +113,17 @@ foreach($results as $result)
         <!-- Features Section -->
         <div class="row">
             <div class="col-lg-6">
-                <h2>BLOOD GROUPS</h2>
-          <p>  blood group of any human being will mainly fall in any one of the following groups.</p>
+                <h2>Lorem ipsum dolor </h2>
+          <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
                 <ul>
                 
                 
-<li>A positive or A negative</li>
-<li>B positive or B negative</li>
-<li>O positive or O negative</li>
-<li>AB positive or AB negative.</li>
+<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</li>
+<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</li>
+<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</li>
+<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</li>
                 </ul>
-                <p>A healthy diet helps ensure a successful blood donation, and also makes you feel better! Check out the following recommended foods to eat prior to your donation.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
             <div class="col-lg-6">
                 <img class="img-fluid rounded" src="images/blood-donor (1).jpg" alt="">
@@ -136,14 +136,12 @@ foreach($results as $result)
         <!-- Call to Action Section -->
         <div class="row mb-4">
             <div class="col-md-8">
-            <h4>UNIVERSAL DONORS AND RECIPIENTS</h4>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</h4>
                 <p>
-The most common blood type is O, followed by type A.
-
-Type O individuals are often called "universal donors" since their blood can be transfused into persons with any blood type. Those with type AB blood are called "universal recipients" because they can receive blood of any type.</p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
             <div class="col-md-4">
-                <a class="btn btn-lg btn-secondary btn-block" href="become-donar.php">Become a Donar</a>
+                <a class="btn btn-lg btn-secondary btn-block" href="patient_form.php">Patient Form</a>
             </div>
         </div>
 
