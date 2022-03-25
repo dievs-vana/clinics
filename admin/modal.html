@@ -1,0 +1,806 @@
+<div class="modal fade show" id="addPatientModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" aria-modal="true" style="padding-right: 16px; display: block;">
+    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="myModalLabel">Add Patient</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+    </div>
+    <div class="modal-body p-3">
+    <form data-toggle="validator" action="#" method="POST" id="addPatient" enctype="multipart/form-data">
+    <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="true">Patient Information</a>
+    <a class="nav-item nav-link" id="nav-treatment-tab" data-toggle="tab" href="#nav-treatment" role="tab" aria-controls="nav-treatment" aria-selected="true">Treatment</a>
+    </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
+    
+    <div class="border mt-3">
+    <div class="cbg-dark p-2 text-white pointer" id="patientInformationHeader">&nbsp;Patients Information</div>
+    <div class="p-2 mt-3" id="patientInformationContent">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="firstname">First Name</label>
+    <input type="text" class="form-control" name="firstname" id="firstname">
+    <span class="errorInput" id="errorfirstname"></span>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="middlename">Middle Name</label>
+    <input type="text" class="form-control" name="middlename" id="middlename">
+    <span class="errorInput" id="errormiddlename"></span>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="lastname">Last Name</label>
+    <input type="text" class="form-control" name="lastname" id="lastname">
+    <span class="errorInput" id="errorlastname"></span>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="birthdate">Birthdate</label>
+    <div class="input-group">
+    <input type="text" class="form-control" placeholder="mm-dd-yyyy" id="birthdate" name="birthdate" readonly="readonly">
+    <div class="input-group-append">
+    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+    </div>
+    </div>
+    <span id="errorbirthdate" class="errorInput"></span>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-4">
+     <div class="form-group">
+    <label for="age">Age</label>
+    <input type="text" class="form-control" id="age" name="age" readonly="">
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-4">
+    <div class="form-group">
+    <label for="sex">Sex</label>
+    <div class="form-check">
+    <div class="form-check-label">
+    <label class="form-check-label">
+    <input type="radio" name="sex" id="male" value="Male"> Male
+    </label>
+    </div>
+    </div>
+    <div class="form-check">
+    <div class="form-check-label">
+    <label class="form-check-label">
+    <input type="radio" name="sex" id="female" value="Female" checked=""> Female
+    </label>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-3 col-md-4">
+    <div class="form-group">
+    <label for="weight">Weight</label>
+    <div class="input-group">
+    <input type="text" class="form-control" name="weight" id="weight">
+    <div class="input-group-append" placeholder="Kg">
+    <span class="input-group-text">Kg</span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-lg-4 col-md-6">
+    <div class="form-group">
+    <label for="cellphonenumber">Cellphone Number</label>
+    <input type="text" class="form-control" id="cellphonenumber" name="cellphonenumber">
+    <span id="errorcellphonenumber" class="errorInput"></span>
+    </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+    <div class="form-group">
+    <label for="landlinenumber">Landline Number</label>
+    <input type="text" class="form-control" id="landlinenumber" name="landlinenumber">
+    <span id="errorlandlinenumber" class="errorInput"></span>
+    </div>
+    </div>
+    </div>
+    <hr>
+    <div class="row">
+    <div class="col-lg-8">
+    <div class="form-group">
+    <label for="residence">House/Unit/Flr #, Bldg Name, Blk/Lot # Street name</label>
+    <input type="text" name="residence" class="form-control" id="residence">
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="region">Region</label>
+    <select class="form-control pointer" id="region" name="region">
+    
+    <option value="1">REGION I (ILOCOS REGION)</option><option value="2">REGION II (CAGAYAN VALLEY)</option><option value="3">REGION III (CENTRAL LUZON)</option><option value="4">REGION IV-A (CALABARZON)</option><option value="17">REGION IV-B (MIMAROPA)</option><option value="5">REGION V (BICOL REGION)</option><option value="6">REGION VI (WESTERN VISAYAS)</option><option value="7">REGION VII (CENTRAL VISAYAS)</option><option value="8">REGION VIII (EASTERN VISAYAS)</option><option value="9">REGION IX (ZAMBOANGA PENINSULA)</option><option value="10">REGION X (NORTHERN MINDANAO)</option><option value="11">REGION XI (DAVAO REGION)</option><option value="12">REGION XII (SOCCSKSARGEN)</option><option value="13" selected="">NATIONAL CAPITAL REGION (NCR)</option><option value="14">CORDILLERA ADMINISTRATIVE REGION (CAR)</option><option value="15">AUTONOMOUS REGION IN MUSLIM MINDANAO (ARMM)</option><option value="16">REGION XIII (Caraga)</option></select>
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="province">Province</label>
+    <select class="form-control pointer" id="province" name="province"><option hidden="" disabled="" value=""> -- Select province -- </option><option value="1339">NCR, CITY OF MANILA, FIRST DISTRICT</option><option value="1339">CITY OF MANILA</option><option value="1374">NCR, SECOND DISTRICT</option><option value="1375" selected="">NCR, THIRD DISTRICT</option><option value="1376">NCR, FOURTH DISTRICT</option></select>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="cityMunicipality">City/Municipality</label>
+    <select class="form-control pointer" id="cityMunicipality" name="cityMunicipality"><option hidden="" disabled="" value=""> -- Select city/municipality -- </option><option value="137501">CALOOCAN CITY</option><option value="137502" selected="">CITY OF MALABON</option><option value="137503">CITY OF NAVOTAS</option><option value="137504">CITY OF VALENZUELA</option></select>
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="baranggay">Baranggay</label>
+    <select class="form-control pointer" id="baranggay" name="baranggay"><option hidden="" disabled="" value=""> -- Select baranggay -- </option><option value="137502001">Acacia</option><option value="137502002">Baritan</option><option value="137502003">Bayan-bayanan</option><option value="137502004">Catmon</option><option value="137502005">Concepcion</option><option value="137502006">Dampalit</option><option value="137502007">Flores</option><option value="137502008">Hulong Duhat</option><option value="137502009">Ibaba</option><option value="137502010" selected="">Longos</option><option value="137502011">Maysilo</option><option value="137502012">Muzon</option><option value="137502013">Niugan</option><option value="137502014">Panghulo</option><option value="137502015">Potrero</option><option value="137502016">San Agustin</option><option value="137502017">Santolan</option><option value="137502018">Tañong (Pob.)</option><option value="137502019">Tinajeros</option><option value="137502020">Tonsuya</option><option value="137502021">Tugatog</option></select>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <div class="border mt-3">
+    <div class="cbg-dark p-2 text-white pointer" id="patientIncidentHeader">&nbsp;History</div>
+    <div class="p-2 mt-3" id="patientIncidentContent">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="historysite">Site</label>
+    <input type="text" class="form-control" name="historysite" id="historysite">
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="historysource">Source</label>
+    <select class="form-control pointer" id="historysource" name="historysource">
+    
+    <option selected="" value="">-- empty source --</option><option value="37">rtjfgj</option></select>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="historydate">Date of Incident</label>
+    <div class="input-group">
+    <input type="text" class="form-control" placeholder="mm-dd-yyyy" id="historydate" name="historydate" readonly="readonly">
+    <div class="input-group-append">
+    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+    </div>
+    </div>
+     </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="historyplace">Place</label>
+    <input type="text" class="form-control" name="historyplace" id="historyplace">
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="historycategory">Category</label>
+    <select class="form-control pointer" id="historycategory" name="historycategory">
+    <option selected="" value="">- empty category -</option>
+    <option value="first">I</option>
+    <option value="second">II</option>
+    <option value="third">III</option>
+    </select>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="historytype">Type</label>
+    <select class="form-control pointer" id="historytype" name="historytype">
+    
+    <option selected="" value="">-- empty type --</option><option value="4">rabies</option><option value="5">rabies</option><option value="6">fever</option><option value="7">Doctor</option></select>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+    <button type="button" class="btn btn-sm btn-secondary" id="treatmentNext">Treatment <i class="fas fa-arrow-right"></i></button>
+    </div>
+    </div>
+    <div class="tab-pane fade" id="nav-treatment" role="tabpanel" aria-labelledby="nav-profile-tab">
+    
+    
+    <div class="border mt-3">
+    <div class="cbg-dark p-2 text-white pointer">&nbsp;Exposure</div>
+    <div class="p-2 mt-3">
+    <div class="row">
+    <div class="col-sm-4">
+    <div class="form-group">
+    <label>Select exposure type</label>
+    <select class="form-control pointer" id="exposureType" name="exposuretype">
+    <option value="postExposure">Post exposure</option>
+    <option value="preExposure">Pre exposure</option>
+    </select>
+    </div>
+    </div>
+    <div class="col-sm-8">
+    </div>
+    </div>
+    
+    <div class="mt-3" id="postExposure">
+    <div class="cbg-dark p-2 text-white text-center"><b>POST-EXPOSURE</b></div>
+    <div class="border p-2">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="postcategory">Category of Exposure</label>
+    <select class="form-control pointer" id="postcategory" name="postcategory">
+    <option selected="" value="">-- empty category --</option>
+    <option value="first">I</option>
+    <option value="second">II</option>
+    <option value="third">III</option>
+    </select>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="postdate">Date of Exposure</label>
+    <div class="input-group">
+    <input type="text" class="form-control pointer" name="postdate" id="postdate" placeholder="mm-dd-yyyy" readonly="">
+    <div class="input-group-append">
+    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="postplace">Place</label>
+    <input type="text" class="form-control" id="postplace" name="postplace">
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="posttype">Type</label>
+    <select class="form-control pointer" id="posttype" name="posttype">
+    
+    Failed to connect to MySQL 1203</select>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <label for="postsource">Source</label>
+    <select class="form-control pointer" id="postsource" name="postsource">
+    
+    </select>
+    </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+    </div>
+    </div>
+    <div class="cbg-dark p-2 text-white text-center"><b>POST-EXPOSURE VACCINATION RECORD</b></div>
+    <div class="p-2 border"></div>
+    <div id="postExposureContent">
+    <div class="row">
+    <div class="col-sm-12" id="postExposureWrapper">
+    
+    <div style="overflow-x: auto;" id="postexposureWrapperTableOverflow">
+    <div id="postExposureWrapperTable" style="width: 748px;">
+    
+    <table class="table table-bordered table-sm" style="width: 100%;" id="postExposureTable">
+    <thead class="thead-dark">
+    <tr>
+    <th>Duration</th>
+    <th>Date</th>
+    <th style="width: 137px;">Administration Site</th>
+    <th>Treatment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>
+    <b>Day 0</b>
+    </td>
+    <td>
+    <input type="text" name="postDate0" class="form-control pointer" placeholder="mm-dd-yyyy" style="width: 126px; border: 1px solid rgb(206, 212, 218);" readonly="" id="postDate0">
+    <p id="errorpostDate0" class="errorInput text-center"></p>
+    </td>
+    <td>
+    <select class="form-control pointer" id="postregimenTypeDay0" name="postregimenTypeDay0" style="width: 148px;">
+    <option value="intramuscular">Intramuscular</option>
+    <option value="intradermal">Intradermal</option>
+    </select>
+    </td>
+    <td>
+    <div class="row">
+    <div class="col-sm-12 d-flex">
+    <select class="form-control pointer" id="postprescriptionDay0" name="postprescriptionDay0">
+    
+    </select>
+    <button class="btn btn-sm btn-success ml-3" type="button" id="postaddMedicineBtnDay0"> <i class="fas fa-plus"></i> Add </button>
+    </div>
+    <div class="d-flex justify-content-center" style="width: 240.766px; margin-left: 15px;">
+    <span class="errorInput" id="errorpostprescriptionDay0"></span>
+    </div>
+    </div>
+    
+    <div class="tableFixHead border mt-2">
+    <table class="table table-hover table-bordered table-sm" style="width: 100%; font-size: 14px;" id="postmedicinesTableDay0">
+    <thead class="thead-light">
+    <tr>
+    <th class="d-none">id</th>
+    <th>Medicines</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody id="postmedicinestbodyDay0">
+    
+    
+    </tbody>
+    </table>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>Day 3</b>
+    </td>
+    <td>
+    <input type="text" name="postDate3" id="postDate3" class="form-control pointer" placeholder="mm-dd-yyyy" readonly="" style="border: 1px solid rgb(206, 212, 218);">
+    <p id="errorpostDate3" class="errorInput text-center"></p>
+    </td>
+    <td>
+    <select class="form-control pointer" id="postregimenTypeDay3" name="postregimenTypeDay3" style="width: 148px;">
+    <option value="intramuscular">Intramuscular</option>
+    <option value="intradermal">Intradermal</option>
+    </select>
+    </td>
+    <td>
+    <div class="row">
+    <div class="col-sm-12 d-flex">
+    <select class="form-control pointer" id="postprescriptionDay3" name="postprescriptionDay3">
+    
+    </select>
+    <button class="btn btn-sm btn-primary ml-3" type="button" id="postaddMedicineBtnDay3"> <i class="fas fa-plus"></i> Add</button>
+    </div>
+     <div class="d-flex justify-content-center" style="width: 240.766px; margin-left: 15px;">
+    <span class="errorInput" id="errorpostprescriptionDay3"></span>
+    </div>
+    </div>
+    
+    <div class="tableFixHead border mt-2">
+    <table class="table table-hover table-bordered table-sm" style="width: 100%; font-size: 14px; " id="postmedicinesTableDay3">
+    <thead class="thead-light">
+    <tr>
+    <th class="d-none">id</th>
+    <th>Medicines</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody id="postmedicinestbodyDay3">
+    
+    </tbody>
+    </table>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>Day 7</b>
+    </td>
+    <td>
+    <input type="text" name="postDate7" id="postDate7" class="form-control pointer" placeholder="mm-dd-yyyy" readonly="" style="border: 1px solid rgb(206, 212, 218);">
+    <p id="errorpostDate7" class="errorInput text-center"></p>
+    </td>
+    <td>
+    <select class="form-control pointer" id="postregimenTypeDay7" name="postregimenTypeDay7" style="width: 148px;">
+    <option value="intramuscular">Intramuscular</option>
+    <option value="intradermal">Intradermal</option>
+    </select>
+    </td>
+    <td>
+    <div class="row">
+    <div class="col-sm-12 d-flex">
+    <select class="form-control pointer" id="postprescriptionDay7" name="postprescriptionDay7">
+    
+    <option value="41">sofia</option><option value="46">Wtf</option><option value="43">COVID 19 Vaccine</option><option value="45">Paracetamol </option><option value="47">x</option><option value="48">Rasuljon</option><option value="49">go</option><option value="50">Shah</option><option value="51">Myrevit- C</option><option value="52">felodepine</option><option value="53">eefewfw</option><option value="55">DAD</option><option value="56">Huna</option><option value="57">fww</option><option value="58">V-B1</option><option value="59">Icepop</option><option value="60">Yasser</option><option value="61">test</option><option value="62">profinal</option></select>
+    <button id="postaddMedicineBtnDay7" class="btn btn-sm btn-primary ml-3" type="button"> <i class="fas fa-plus"></i> Add</button>
+    </div>
+    <div class="d-flex justify-content-center" style="width: 240.766px; margin-left: 15px;">
+    <span class="errorInput" id="errorpostprescriptionDay7"></span>
+    </div>
+    </div>
+    
+    <div class="tableFixHead border mt-2">
+    <table class="table table-hover table-bordered table-sm" style="width: 100%; font-size: 14px; " id="postmedicinesTableDay7">
+    <thead class="thead-light">
+    <tr>
+    <th class="d-none">id</th>
+    <th>Medicines</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody id="postmedicinestbodyDay7">
+    
+    </tbody>
+    </table>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>Day 14 <br><small>(Observation Period)</small></b>
+    </td>
+    <td>
+    <input type="text" id="postDate14" name="postDate14" class="form-control pointer" placeholder="mm-dd-yyyy" readonly="" style="border: 1px solid rgb(206, 212, 218);">
+    </td>
+    <td>
+    <select class="form-control not-allowed" id="postregimenTypeDay14" name="postregimenTypeDay14" style="width: 148px;" disabled="">
+    <option value="intramuscular">Intramuscular</option>
+    <option value="intradermal">Intradermal</option>
+    </select>
+    </td>
+    <td>
+    <div class="row">
+    <div class="col-sm-12 d-flex">
+    <select class="form-control not-allowed" id="postprescriptionDay14" name="postprescriptionDay14" disabled="">
+    
+    <option value="41">sofia</option><option value="46">Wtf</option><option value="43">COVID 19 Vaccine</option><option value="45">Paracetamol </option><option value="47">x</option><option value="48">Rasuljon</option><option value="49">go</option><option value="50">Shah</option><option value="51">Myrevit- C</option><option value="52">felodepine</option><option value="53">eefewfw</option><option value="55">DAD</option><option value="56">Huna</option><option value="57">fww</option><option value="58">V-B1</option><option value="59">Icepop</option><option value="60">Yasser</option><option value="61">test</option><option value="62">profinal</option></select>
+    <button id="postaddMedicineBtnDay14" class="btn btn-sm btn-primary ml-3 not-allowed" type="button" disabled=""> <i class="fas fa-plus"></i> Add</button>
+    </div>
+    <div class="d-flex justify-content-center" style="width: 240.766px; margin-left: 15px;">
+    <span class="errorInput" id="errorpostprescriptionDay14"></span>
+    </div>
+    </div>
+    
+    <div class="tableFixHead border mt-2">
+    <table class="table table-hover table-bordered table-sm" style="width: 100%; font-size: 14px; " id="postmedicinesTableDay14">
+    <thead class="thead-light">
+    <tr>
+    <th class="d-none">id</th>
+    <th>Medicines</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody id="postmedicinestbodyDay14">
+    
+    </tbody>
+    </table>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>Day 28-30</b>
+    </td>
+    <td>
+    <input type="text" name="postDate28_30" id="postDate28_30" class="form-control not-allowed" placeholder="mm-dd-yyyy" readonly="" disabled="" style="border: 1px solid rgb(206, 212, 218);">
+     </td>
+    <td>
+    <select class="form-control not-allowed" id="postregimenTypeDay28_30" name="postregimenTypeDay28_30" style="width: 148px;" disabled="">
+    <option value="intramuscular">Intramuscular</option>
+    <option value="intradermal">Intradermal</option>
+    </select>
+    </td>
+    <td>
+    <div class="row">
+    <div class="col-sm-12 d-flex">
+    <select class="form-control not-allowed" id="postprescriptionDay28_30" name="postprescriptionDay28_30" disabled="">
+    
+    <option value="41">sofia</option><option value="46">Wtf</option><option value="43">COVID 19 Vaccine</option><option value="45">Paracetamol </option><option value="47">x</option><option value="48">Rasuljon</option><option value="49">go</option><option value="50">Shah</option><option value="51">Myrevit- C</option><option value="52">felodepine</option><option value="53">eefewfw</option><option value="55">DAD</option><option value="56">Huna</option><option value="57">fww</option><option value="58">V-B1</option><option value="59">Icepop</option><option value="60">Yasser</option><option value="61">test</option><option value="62">profinal</option></select>
+    <button id="postaddMedicineBtnDay28_30" class="btn btn-sm btn-primary ml-3 not-allowed" type="button" disabled=""> <i class="fas fa-plus"></i> Add</button>
+    </div>
+    <div class="d-flex justify-content-center" style="width: 240.766px; margin-left: 15px;">
+    <span class="errorInput" id="errorpostprescriptionDay28_30"></span>
+    </div>
+    </div>
+    
+    <div class="tableFixHead border mt-2">
+    <table id="postmedicinesTableDay28_30" class="table table-hover table-bordered table-sm" style="width: 100%; font-size: 14px;">
+    <thead class="thead-light">
+    <tr>
+    <th class="d-none">id</th>
+    <th>Medicines</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody id="postmedicinestbodyDay28_30">
+    
+    </tbody>
+    </table>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="form-group mt-2 p-2">
+    <label for="remarksPostExposure">Remarks:</label>
+    <input type="text" class="form-control" name="remarksPostExposure" id="remarksPostExposure">
+    </div>
+    </div>
+    </div>
+    
+    <div class="mt-3" id="preExposure" style="display: none;">
+    <div class="cbg-dark p-2 text-white text-center"><b>PRE-EXPOSURE VACCINATION RECORD</b></div>
+    <div class="border p-2"></div>
+    <div id="preExposureContent">
+    <div class="row">
+    <div class="col-sm-12" id="preExposureWrapper">
+    
+    <div style="overflow-x: auto;" id="preexposureWrapperTableOverflow">
+    <div id="preexposureWrapperTable" style="width: 748px;">
+    
+    <table class="table table-bordered table-sm" style="width: 100%;" id="preExposureTable">
+    <thead class="thead-dark">
+     <tr>
+    <th>Duration</th>
+    <th>Date</th>
+    <th style="width: 137px;">Administration Site</th>
+    <th>Treatment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>
+    <b>Day 0</b>
+    </td>
+    <td>
+    <input type="text" name="preDate0" class="form-control pointer" placeholder="mm-dd-yyyy" readonly="" id="preDate0" style="border: 1px solid rgb(206, 212, 218);">
+    <p id="errorpreDate0" class="errorInput text-center"></p>
+    </td>
+    <td>
+    <select class="form-control pointer" id="preregimenTypeDay0" name="preregimenTypeDay0" style="width: 148px;">
+    <option value="intramuscular">Intramuscular</option>
+    <option value="intradermal">Intradermal</option>
+    </select>
+    </td>
+    <td>
+    <div class="row">
+    <div class="col-sm-12 d-flex">
+    <select class="form-control pointer" id="preprescriptionDay0" name="exposure">
+    
+    <option value="41">sofia</option><option value="46">Wtf</option><option value="43">COVID 19 Vaccine</option><option value="45">Paracetamol </option><option value="47">x</option><option value="48">Rasuljon</option><option value="49">go</option><option value="50">Shah</option><option value="51">Myrevit- C</option><option value="52">felodepine</option><option value="53">eefewfw</option><option value="55">DAD</option><option value="56">Huna</option><option value="57">fww</option><option value="58">V-B1</option><option value="59">Icepop</option><option value="60">Yasser</option><option value="61">test</option><option value="62">profinal</option></select>
+    <button class="btn btn-sm btn-success ml-3" type="button" id="preaddMedicineBtnDay0"> <i class="fas fa-plus"></i> Add </button>
+    </div>
+    <div class="d-flex justify-content-center" style="width: 240.766px; margin-left: 15px;">
+    <span class="errorInput" id="errorpreprescriptionDay0"></span>
+    </div>
+    </div>
+    
+    <div class="tableFixHead border mt-2">
+    <table class="table table-hover table-bordered table-sm" style="width: 100%; font-size: 14px; " id="premedicinesTableDay0">
+    <thead class="thead-light">
+    <tr>
+    <th class="d-none">id</th>
+    <th>Medicines</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody id="premedicinestbodyDay0">
+    
+    </tbody>
+    </table>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>Day 7</b>
+    </td>
+    <td>
+    <input type="text" name="preDate7" id="preDate7" class="form-control pointer" placeholder="mm-dd-yyyy" readonly="" style="border: 1px solid rgb(206, 212, 218);">
+    <p id="errorpreDate7" class="errorInput text-center"></p>
+    </td>
+    <td>
+    <select class="form-control pointer" id="preregimenTypeDay7" name="preregimenTypeDay7" style="width: 148px;">
+    <option value="intramuscular">Intramuscular</option>
+    <option value="intradermal">Intradermal</option>
+    </select>
+    </td>
+    <td>
+    <div class="row">
+    <div class="col-sm-12 d-flex">
+    <select class="form-control pointer" id="preprescriptionDay7" name="exposure">
+    
+    <option value="41">sofia</option><option value="46">Wtf</option><option value="43">COVID 19 Vaccine</option><option value="45">Paracetamol </option><option value="47">x</option><option value="48">Rasuljon</option><option value="49">go</option><option value="50">Shah</option><option value="51">Myrevit- C</option><option value="52">felodepine</option><option value="53">eefewfw</option><option value="55">DAD</option><option value="56">Huna</option><option value="57">fww</option><option value="58">V-B1</option><option value="59">Icepop</option><option value="60">Yasser</option><option value="61">test</option><option value="62">profinal</option></select>
+    <button class="btn btn-sm btn-primary ml-3" type="button" id="preaddMedicineBtnDay7"> <i class="fas fa-plus"></i> Add</button>
+    </div>
+    <div class="d-flex justify-content-center" style="width: 240.766px; margin-left: 15px;">
+    <span class="errorInput" id="errorpreprescriptionDay7"></span>
+    </div>
+    </div>
+    
+    <div class="tableFixHead border mt-2">
+    <table class="table table-hover table-bordered table-sm" style="width: 100%; font-size: 14px; " id="premedicinesTableDay7">
+    <thead class="thead-light">
+    <tr>
+    <th class="d-none">id</th>
+    <th>Medicines</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody id="premedicinestbodyDay7">
+    
+    </tbody>
+    </table>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>Day 21-28</b>
+    </td>
+    <td>
+    <input type="text" name="preDate21_28" id="preDate21_28" class="form-control pointer" placeholder="mm-dd-yyyy" readonly="" style="border: 1px solid rgb(206, 212, 218);">
+    <p id="errorpreDate21_28" class="errorInput text-center"></p>
+    </td>
+    <td>
+    <select class="form-control pointer" id="preregimenTypeDay21_28" name="preregimenTypeDay21_28" style="width: 148px;">
+    <option value="intramuscular">Intramuscular</option>
+    <option value="intradermal">Intradermal</option>
+    </select>
+    </td>
+    <td>
+    <div class="row">
+    <div class="col-sm-12 d-flex">
+    <select class="form-control pointer" id="preprescriptionDay21_28" name="preprescriptionDay21_28">
+    
+    <option value="41">sofia</option><option value="46">Wtf</option><option value="43">COVID 19 Vaccine</option><option value="45">Paracetamol </option><option value="47">x</option><option value="48">Rasuljon</option><option value="49">go</option><option value="50">Shah</option><option value="51">Myrevit- C</option><option value="52">felodepine</option><option value="53">eefewfw</option><option value="55">DAD</option><option value="56">Huna</option><option value="57">fww</option><option value="58">V-B1</option><option value="59">Icepop</option><option value="60">Yasser</option><option value="61">test</option><option value="62">profinal</option></select>
+    <button id="preaddMedicineBtnDay21_28" class="btn btn-sm btn-primary ml-3" type="button"> <i class="fas fa-plus"></i> Add</button>
+    </div>
+    <div class="d-flex justify-content-center" style="width: 240.766px; margin-left: 15px;">
+    <span class="errorInput" id="errorpreprescriptionDay21_28"></span>
+    </div>
+    </div>
+    
+    <div class="tableFixHead border mt-2">
+    <table id="premedicinesTableDay21_28" class="table table-hover table-bordered table-sm" style="width: 100%; font-size: 14px;">
+    <thead class="thead-light">
+    <tr>
+    <th class="d-none">id</th>
+    <th>Medicines</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody id="premedicinestbodyDay21_28">
+    
+    </tbody>
+    </table>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>1st Booster <br> <small>at 1 year</small></b>
+    </td>
+    <td>
+    <input type="text" id="preDate1year" name="preDate1year" class="form-control pointer" placeholder="mm-dd-yyyy" readonly="" style="border: 1px solid rgb(206, 212, 218);">
+    </td>
+    <td>
+    <select class="form-control not-allowed" id="preregimenType1year" name="preregimenType1year" style="width: 148px;" disabled="">
+    <option value="intramuscular">Intramuscular</option>
+    <option value="intradermal">Intradermal</option>
+    </select>
+    </td>
+    <td>
+    <div class="row">
+    <div class="col-sm-12 d-flex">
+    <select class="form-control not-allowed" id="preprescription1year" name="exposure" disabled="">
+    
+    <option value="41">sofia</option><option value="46">Wtf</option><option value="43">COVID 19 Vaccine</option><option value="45">Paracetamol </option><option value="47">x</option><option value="48">Rasuljon</option><option value="49">go</option><option value="50">Shah</option><option value="51">Myrevit- C</option><option value="52">felodepine</option><option value="53">eefewfw</option><option value="55">DAD</option><option value="56">Huna</option><option value="57">fww</option><option value="58">V-B1</option><option value="59">Icepop</option><option value="60">Yasser</option><option value="61">test</option><option value="62">profinal</option></select>
+    <button id="preaddMedicineBtn1year" class="btn btn-sm btn-primary ml-3 not-allowed" type="button" disabled=""> <i class="fas fa-plus"></i> Add</button>
+    </div>
+    <div class="d-flex justify-content-center" style="width: 240.766px; margin-left: 15px;">
+    <span class="errorInput" id="errorpreprescription1year"></span>
+    </div>
+    </div>
+    
+    <div class="tableFixHead border mt-2">
+    <table class="table table-hover table-bordered table-sm" style="width: 100%; font-size: 14px; " id="premedicinesTable1year">
+    <thead class="thead-light">
+    <tr>
+    <th class="d-none">id</th>
+     <th>Medicines</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody id="premedicinestbody1year">
+    
+    </tbody>
+    </table>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>Subsequent <br> Booster <br> <small>(every 3 years)</small></b>
+    </td>
+    <td>
+    <input type="text" id="preDate3years" name="preDate3years" class="form-control not-allowed" placeholder="mm-dd-yyyy" readonly="" disabled="" style="border: 1px solid rgb(206, 212, 218);">
+    </td>
+    <td>
+    <select class="form-control not-allowed" id="preregimenType3years" name="preregimenType3years" style="width: 148px;" disabled="">
+    <option value="intramuscular">Intramuscular</option>
+    <option value="intradermal">Intradermal</option>
+    </select>
+    </td>
+    <td>
+    <div class="row">
+    <div class="col-sm-12 d-flex">
+    <select class="form-control not-allowed" id="preprescription3years" name="preprescription3years" disabled="">
+    
+    <option value="41">sofia</option><option value="46">Wtf</option><option value="43">COVID 19 Vaccine</option><option value="45">Paracetamol </option><option value="47">x</option><option value="48">Rasuljon</option><option value="49">go</option><option value="50">Shah</option><option value="51">Myrevit- C</option><option value="52">felodepine</option><option value="53">eefewfw</option><option value="55">DAD</option><option value="56">Huna</option><option value="57">fww</option><option value="58">V-B1</option><option value="59">Icepop</option><option value="60">Yasser</option><option value="61">test</option><option value="62">profinal</option></select>
+    <button id="preaddMedicineBtn3years" class="btn btn-sm btn-primary ml-3 not-allowed" type="button" disabled=""> <i class="fas fa-plus"></i> Add</button>
+    </div>
+    <div class="d-flex justify-content-center" style="width: 240.766px; margin-left: 15px;">
+    <span class="errorInput" id="errorpreprescription3years"></span>
+    </div>
+    </div>
+    
+    <div class="tableFixHead border mt-2">
+    <table class="table table-hover table-bordered table-sm" style="width: 100%; font-size: 14px; " id="premedicinesTable3years">
+    <thead class="thead-light">
+    <tr>
+    <th class="d-none">id</th>
+    <th>Medicines</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody id="premedicinestbody3years">
+    
+    </tbody>
+    </table>
+     </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="form-group mt-2 p-2">
+    <label for="remarksPreExposure">Remarks:</label>
+    <input type="text" class="form-control" name="remarksPreExposure" id="remarksPreExposure">
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+    <button type="button" class="btn btn-sm btn-secondary" id="infoPrevious"><i class="fas fa-arrow-left"></i> Patient Information</button>
+    </div>
+    </div>
+    </div>
+    <div class="d-flex justify-content-end mt-4">
+    <input type="button" class="btn btn-secondary mr-4" data-dismiss="modal" value="Cancel">
+    <input type="submit" class="btn btn-primary" value="Submit" id="addSubmit">
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>

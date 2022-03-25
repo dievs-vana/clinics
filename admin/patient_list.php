@@ -7,9 +7,9 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:index.php');
 }
 else{
-if(isset($_REQUEST['hidden']))
+if(isset($_REQUEST['update']))
 	{
-$eid=intval($_GET['hidden']);
+$eid=intval($_GET['update']);
 $status="0";
 $sql = "UPDATE patienttbl SET Status=:status WHERE  id=:eid";
 $query = $dbh->prepare($sql);
@@ -20,20 +20,6 @@ $query -> execute();
 $msg="Booking Successfully Cancelled";
 }
 
-
-if(isset($_REQUEST['public']))
-	{
-$aeid=intval($_GET['public']);
-$status=1;
-
-$sql = "UPDATE patienttbl SET Status=:status WHERE  id=:aeid";
-$query = $dbh->prepare($sql);
-$query -> bindParam(':status',$status, PDO::PARAM_STR);
-$query-> bindParam(':aeid',$aeid, PDO::PARAM_STR);
-$query -> execute();
-
-$msg="Booking Successfully Confirmed";
-}
 if(isset($_REQUEST['del']))
 	{
 $did=intval($_GET['del']);
@@ -60,6 +46,7 @@ $msg="Record deleted Successfully ";
 	
 	<title>SVCC | Patient List  </title>
 
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<!-- Sandstone Bootstrap CSS -->
@@ -115,7 +102,9 @@ $msg="Record deleted Successfully ";
 							<div class="panel-body">
 							<?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
-				<a href="download-records.php" style="color:red; font-size:16px;">Download Patients List</a>
+				<div class="container">
+					<button class="btn btn-primary my-5"><a href="add_patient.php" class="text-light">Add Patient</a></button>
+				</div>	
 								<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									<thead>
 										<tr>
@@ -174,13 +163,10 @@ foreach($results as $result)
 										<td>
 <?php if($result->status==1)
 {?>
-<a href="patient_list.php?hidden=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to hiidden this detail')"> Make Hidden</a> 
-<?php } else {?>
-
-<a href="patient_list.php?public=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Public this detail')"> Make Public</a>
+<button class="btn btn-primary"><a href="update_patient.php?update=<?php echo htmlentities($result->id);?>" >Update</a> </button>
 
 <?php } ?>
-<a href="patient_list.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to delete this record')"> Delete</a>
+<button class="btn btn-danger"><a href="patient_list.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to delete this record')"> Delete</a></button>
 </td>
 
 										</tr>
@@ -190,7 +176,7 @@ foreach($results as $result)
 								</table>
 
 						
-
+								<a href="download-records.php" style="color:red; font-size:16px;">Download Patients List</a>
 							</div>
 						</div>
 

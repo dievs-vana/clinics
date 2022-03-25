@@ -13,6 +13,7 @@ if(strlen($_SESSION['alogin'])==0)
 									<thead>
 										<tr>
 										<th>#</th>
+											<th>Vaccinated</th>
 											<th>Name</th>
 											<th>Mobile No</th>
 											<th>Email</th>
@@ -40,6 +41,7 @@ foreach($results as $result)
 echo '  
 <tr>  
 <td>'.$cnt.'</td> 
+<td>'.$Vaccinated= $result->Vaccinated.'</td> 
 <td>'.$last_name= $result->last_name.'</td> 
 <td>'.	$middle_name= $result->middle_name.'</td> 
 <td>'.$first_name= $result->first_name.'</td> 
@@ -48,7 +50,7 @@ echo '
  <td>'.$Department=$result->Department.'</td>	
   <td>'.$Address=$result->Address.'</td>	 
    <td>'.$Message=$result->Message.'</td>	
-  <td>'.$BloodGroup=$result->PostingDate.'</td>	 					
+  <td>'.$posting_date=$result->posting_date.'</td>	 					
 </tr>  
 ';
 header("Content-type: application/octet-stream");

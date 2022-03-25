@@ -7,7 +7,7 @@
    header('location:index.php');
    }
    else{ 
-   
+   $id=$_GET['updateid'];
    if(isset($_POST['submit']))
      {
    $student_id=$_POST['student_id'];
@@ -30,35 +30,11 @@
    $Vaccinated=$_POST['Vaccinated'];
    $Message=$_POST['Message'];
    $status=1;
-   $sql="INSERT INTO  patienttbl(student_id,Department,school_year,first_name,middle_name,last_name,birth_date,Address,mobile_no,year_old,Gender,marital_status,Nationality,Religion,emergency_guardian,relation_ship,emergency_contact,Vaccinated,Message,status)
-   VALUES(:student_id,:Department,:school_year,:first_name,:middle_name,:last_name,:birth_date,:Address,:mobile_no,:year_old,:Gender,:marital_status,:Nationality,:Religion,:emergency_guardian,:relation_ship,:emergency_contact,:Vaccinated,:Message,:status)";
-   $query = $dbh->prepare($sql);
-   $query->bindParam(':student_id',$student_id,PDO::PARAM_STR);
-   $query->bindParam(':Department',$Department,PDO::PARAM_STR);
-   $query->bindParam(':school_year',$school_year,PDO::PARAM_STR);
-   $query->bindParam(':first_name',$first_name,PDO::PARAM_STR);
-   $query->bindParam(':middle_name',$middle_name,PDO::PARAM_STR);
-   $query->bindParam(':last_name',$last_name,PDO::PARAM_STR);
-   $query->bindParam(':birth_date',$birth_date,PDO::PARAM_STR);
-   $query->bindParam(':Address',$Address,PDO::PARAM_STR);
-   $query->bindParam(':status',$status,PDO::PARAM_STR);
-   $query->bindParam(':mobile_no',$mobile_no,PDO::PARAM_STR);
-   $query->bindParam(':year_old',$year_old,PDO::PARAM_STR);
-   $query->bindParam(':Gender',$Gender,PDO::PARAM_STR);
-   $query->bindParam(':marital_status',$marital_status,PDO::PARAM_STR);
-   $query->bindParam(':Nationality',$Nationality,PDO::PARAM_STR);
-   $query->bindParam(':Religion',$Religion,PDO::PARAM_STR);
-   $query->bindParam(':emergency_guardian',$emergency_guardian,PDO::PARAM_STR);
-   $query->bindParam(':relation_ship',$relation_ship,PDO::PARAM_STR);
-   $query->bindParam(':emergency_contact',$emergency_contact,PDO::PARAM_STR);
-   $query->bindParam(':Vaccinated',$Vaccinated,PDO::PARAM_STR);
-   $query->bindParam(':Message',$Message,PDO::PARAM_STR);
-   $query->bindParam(':status',$status,PDO::PARAM_STR);
-   $query->execute();
-   $lastInsertId = $dbh->lastInsertId();
-   if($lastInsertId)
+   $sql="UPDATE `patienttbl` SET `id`='$id',`student_id`='[value-2]',`Department`='[value-3]',`school_year`='[value-4]',`first_name`='[value-5]',`middle_name`='[value-6]',`last_name`='[value-7]',`birth_date`='[value-8]',`Address`='[value-9]',`mobile_no`='[value-10]',`year_old`='[value-11]',`Gender`='[value-12]',`marital_status`='[value-13]',`Nationality`='[value-14]',`Religion`='[value-15]',`emergency_guardian`='[value-16]',`relation_ship`='[value-17]',`emergency_contact`='[value-18]',`Vaccinated`='[value-19]',`Message`='[value-20]',`posting_date`='[value-21]',`status`='[value-22]');
+  $result=mysqli_query($sql);
+   if($result)
    {
-   $msg="Your info submitted successfully";
+   echo="Your updated successfully";
    }
    else 
    {
