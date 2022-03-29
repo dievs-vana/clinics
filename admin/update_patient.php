@@ -8,6 +8,8 @@
    }
    else{ 
    $id=$_GET['updateid'];
+$sql="SELECT * from 'patienttbl' where id=$id";
+$result=mysql_query($con,$sql);
    if(isset($_POST['submit']))
      {
    $student_id=$_POST['student_id'];
@@ -29,16 +31,18 @@
    $emergency_contact=$_POST['emergency_contact'];
    $Vaccinated=$_POST['Vaccinated'];
    $Message=$_POST['Message'];
-   $status=1;
-   $sql="UPDATE `patienttbl` SET `id`='$id',`student_id`='[value-2]',`Department`='[value-3]',`school_year`='[value-4]',`first_name`='[value-5]',`middle_name`='[value-6]',`last_name`='[value-7]',`birth_date`='[value-8]',`Address`='[value-9]',`mobile_no`='[value-10]',`year_old`='[value-11]',`Gender`='[value-12]',`marital_status`='[value-13]',`Nationality`='[value-14]',`Religion`='[value-15]',`emergency_guardian`='[value-16]',`relation_ship`='[value-17]',`emergency_contact`='[value-18]',`Vaccinated`='[value-19]',`Message`='[value-20]',`posting_date`='[value-21]',`status`='[value-22]');
-  $result=mysqli_query($sql);
+   $sql="UPDATE 'patienttbl' SET id='$id',student_id'$student_id',Department='$Department',school_year'$school_year',first_name='$first_name',middle_name'$middle_name',
+   last_name='$last_name',birth_date'$birth_date',Address='$Address',mobile_no'$mobile_no',year_old='$year_old',Gender'$Gender',marital_status='$marital_status',
+   Nationality'$Nationality',Religion='$Religion',emergency_guardian'$emergency_guardian',relation_ship='$relation_ship',emergency_contact'$emergency_contact',
+   Vaccinated='$Vaccinated',Message'$Message', where id=$id";
+  $result=mysqli_query($con,$sql);
    if($result)
    {
-   echo="Your updated successfully";
+   echo "Your updated successfully";
    }
    else 
    {
-   $error="Something went wrong. Please try again";
+      $error="Something went wrong. Please try again";
    }
    
    }   

@@ -7,18 +7,6 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:index.php');
 }
 else{
-if(isset($_REQUEST['update']))
-	{
-$eid=intval($_GET['update']);
-$status="0";
-$sql = "UPDATE patienttbl SET Status=:status WHERE  id=:eid";
-$query = $dbh->prepare($sql);
-$query -> bindParam(':status',$status, PDO::PARAM_STR);
-$query-> bindParam(':eid',$eid, PDO::PARAM_STR);
-$query -> execute();
-
-$msg="Booking Successfully Cancelled";
-}
 
 if(isset($_REQUEST['del']))
 	{
@@ -163,7 +151,7 @@ foreach($results as $result)
 										<td>
 <?php if($result->status==1)
 {?>
-<button class="btn btn-primary"><a href="update_patient.php?update=<?php echo htmlentities($result->id);?>" >Update</a> </button>
+<button class="btn btn-primary"><a href="update_patient.php?updateid='.$id.'<?php echo htmlentities($result->id);?>" >Update</a> </button>
 
 <?php } ?>
 <button class="btn btn-danger"><a href="patient_list.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to delete this record')"> Delete</a></button>
